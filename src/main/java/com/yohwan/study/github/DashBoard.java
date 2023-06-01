@@ -62,7 +62,4 @@ public class DashBoard {
             this.result.merge(participant, 1, Integer::sum);
         }
     }
-
-
-
 }
