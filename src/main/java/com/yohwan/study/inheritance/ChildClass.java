@@ -49,6 +49,11 @@ public class ChildClass extends ParentClass{
         System.out.println(this.getClass().toString());
     }
 
+//    @Override
+//    public void notOverrideMethod() {
+//        System.out.println("i want override");
+//    }
+
     public static void main(String[] args) {
         ParentClass parentClass = new ParentClass("parentCtor");
         parentClass.callMyName();

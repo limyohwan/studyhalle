@@ -16,6 +16,10 @@ public class ParentClass {
         return parentCtorStr;
     }
 
+    public final void notOverrideMethod(){
+        System.out.println("can't override");
+    }
+
     public void callMyName() {
         System.out.println(this.getClass().toString());
     }
