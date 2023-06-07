@@ -3,13 +3,10 @@ package com.yohwan.study.stack;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ListNodeStackTest {
     @Test
     void push() {
         ListNodeStack listNodeStack = new ListNodeStack();
-        int pushed = 1;
         listNodeStack.push(1);
         listNodeStack.push(2);
         listNodeStack.push(3);

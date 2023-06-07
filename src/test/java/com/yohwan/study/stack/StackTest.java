@@ -3,8 +3,6 @@ package com.yohwan.study.stack;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class StackTest {
     @Test
     void push() {
@@ -20,7 +18,9 @@ class StackTest {
     @Test
     void pop() {
         Stack stack = new Stack();
-        int pushed = 1;
+        stack.push(1);
+        stack.push(2);
+        int pushed = 3;
         stack.push(pushed);
 
         int popped = stack.pop();

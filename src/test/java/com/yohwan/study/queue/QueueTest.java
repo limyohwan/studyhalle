@@ -1,10 +1,7 @@
 package com.yohwan.study.queue;
 
-import com.yohwan.study.stack.Stack;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class QueueTest {
 
