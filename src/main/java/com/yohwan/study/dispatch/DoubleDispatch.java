@@ -8,6 +8,7 @@ public class DoubleDispatch {
         void postOn(Sns sns);
     }
 
+    // 첫번째 디스패치 Text 타입을 쓸꺼냐 Picture 타입을 쓸꺼냐
     static class Text implements Post {
         @Override
         public void postOn(Sns sns) {
@@ -17,7 +18,7 @@ public class DoubleDispatch {
 
     static class Picture implements  Post {
         @Override
-        public void postOn( Sns sns) {
+        public void postOn(Sns sns) {
             sns.post(this);
         }
     }
@@ -26,6 +27,8 @@ public class DoubleDispatch {
         void post(Text post);
         void post(Picture post);
     }
+
+    // 두번째 디스패치 Facebook 을 쓸꺼냐, Instagram 을 쓸꺼냐 + 그 안에서도 Text 타입 매개변수를 쓸꺼냐 Picture 타입 매개변수를 쓸꺼냐
     static class Facebook implements Sns {
         @Override
         public void post(Text post) {
@@ -37,6 +40,7 @@ public class DoubleDispatch {
             System.out.println("Picture post on facebook");
         }
     };
+
     static class Instagram implements Sns {
         @Override
         public void post(Text post) {
@@ -53,6 +57,6 @@ public class DoubleDispatch {
         List< Post> posts = Arrays.asList(new  Text(), new  Picture());
         List< Sns> sns = Arrays.asList(new  Facebook(), new  Instagram());
 
-        posts.forEach(p -> sns.forEach(p::postOn));
+        posts.forEach(p -> sns.forEach(s -> p.postOn(s)));
     }
 }
