@@ -69,7 +69,8 @@ public class JavaPuzzler40 {
         } catch (IOException e) { // 에러를 잡거나 던지거나
             //에러처리
         } finally {
-            // finally 구문도 추가적으로 사용 가능
+            // finally 구문도 추가적으로 사용 가능 -> try with resources는 finally 블록에서 close 로직을 생성하는게 아니라 catch 블록에서 close하는 로직을 생성해주고 또 맨 밑에 close하는 로직을 추가로 생성해줌
         }
     }
+
 }
