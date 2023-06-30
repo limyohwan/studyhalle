@@ -19,6 +19,12 @@ public class King extends TrumpPerson implements Judge {
     }
 
     @Override
+    public Witness requestToCall(Caller caller, Witness witness) {
+        System.out.println("진행자야 증인을 불러와라");
+        return caller.call(witness);
+    }
+
+    @Override
     public void requestToTestify(Witness witness) {
         System.out.println("증언해라");
         witness.testify();
@@ -36,7 +42,7 @@ public class King extends TrumpPerson implements Judge {
         Witness witness = king.requestToCall(rabbit);
         king.requestToTestify(witness);
 
-        Witness witness2 = king.requestToCall(rabbit);
+        Witness witness2 = king.requestToCall(rabbit, hatter);
         king.requestToTestify(witness2);
 
     }

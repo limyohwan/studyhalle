@@ -20,4 +20,13 @@ public class Rabbit implements Caller {
 
         return witness.appear();
     }
+
+    @Override
+    public Witness call(Witness witness) {
+        witnesses.remove(witness);
+
+        System.out.println("증인 등장하시오");
+
+        return witness.appear();
+    }
 }
