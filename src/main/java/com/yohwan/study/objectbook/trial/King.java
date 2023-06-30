@@ -4,6 +4,7 @@ import com.yohwan.study.objectbook.trump.TrumpKind;
 import com.yohwan.study.objectbook.trump.TrumpPerson;
 import com.yohwan.study.objectbook.trump.TrumpShape;
 
+import java.util.LinkedList;
 import java.util.SortedMap;
 
 public class King extends TrumpPerson implements Judge {
@@ -12,9 +13,9 @@ public class King extends TrumpPerson implements Judge {
     }
 
     @Override
-    public boolean requestToCall(Caller caller, Witness witness) {
+    public Witness requestToCall(Caller caller) {
         System.out.println("진행자야 증인을 불러와라");
-        return caller.call(witness);
+        return caller.call();
     }
 
     @Override
@@ -25,13 +26,16 @@ public class King extends TrumpPerson implements Judge {
 
     public static void main(String[] args) {
         King king = new King(TrumpKind.KING, TrumpShape.HEART);
-        Rabbit rabbit = new Rabbit();
+        LinkedList<Witness> witnesses = new LinkedList<>();
         Hatter hatter = new Hatter();
+        witnesses.offer(hatter);
+        Rabbit rabbit = new Rabbit(witnesses);
 
-        if(king.requestToCall(rabbit, hatter)) {
-            king.requestToTestify(hatter);
-        } else {
-            System.out.println("증인이 없으니 재판을 종료한다");
-        }
+        Witness witness = king.requestToCall(rabbit);
+        king.requestToTestify(witness);
+
+        Witness witness2 = king.requestToCall(rabbit);
+        king.requestToTestify(witness2);
+
     }
 }

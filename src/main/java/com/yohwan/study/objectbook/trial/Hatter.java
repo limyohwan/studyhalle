@@ -2,9 +2,9 @@ package com.yohwan.study.objectbook.trial;
 
 public class Hatter implements Witness {
     @Override
-    public boolean appear() {
+    public Witness appear() {
         System.out.println("모자 장수 등장하겠습니다.");
-        return true;
+        return this;
     }
 
     @Override

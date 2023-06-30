@@ -1,6 +1,6 @@
 package com.yohwan.study.objectbook.trial;
 
 public interface Judge {
-    boolean requestToCall(Caller caller, Witness witness);
+    Witness requestToCall(Caller caller);
     void requestToTestify(Witness witness);
 }
