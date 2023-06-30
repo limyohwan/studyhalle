@@ -82,14 +82,17 @@ public class Alice {
     public static void main(String[] args) {
         Alice alice = new Alice(130, Place.PASSAGE);
         Mushroom mushroom = new Mushroom(150, 150);
+        Cake cake = new Cake(100);
+        Beverage beverage = new Beverage(100);
+        Fan fan = new Fan();
+        Key key = new Key(30);
+        Door door = new Door(40);
+
         alice.eatLeft(mushroom);
         alice.eatRight(mushroom);
-        Cake cake = new Cake(100);
         alice.eat(cake);
-        Beverage beverage = new Beverage(100);
         alice.drink(beverage);
         alice.eat(cake);
-        Fan fan = new Fan();
         alice.shake(fan);
         alice.shake(fan);
         alice.shake(fan);
@@ -97,8 +100,11 @@ public class Alice {
         alice.shake(fan);
         alice.shake(fan);
         alice.shake(fan);
-        alice.get(new Key(30));
-        alice.pass(new Door(40));
+        alice.get(key);
+        alice.pass(door);
+
+        new Door(40).pass(new Alice(100, Place.PASSAGE));
+        new Alice(100, Place.PASSAGE).pass(new Door(40));
 
         System.out.println("엘리스의 현재 위치 : " + alice.getPlace());
     }

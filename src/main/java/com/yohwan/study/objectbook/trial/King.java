@@ -26,9 +26,11 @@ public class King extends TrumpPerson implements Judge {
 
     public static void main(String[] args) {
         King king = new King(TrumpKind.KING, TrumpShape.HEART);
+
         LinkedList<Witness> witnesses = new LinkedList<>();
         Hatter hatter = new Hatter();
         witnesses.offer(hatter);
+
         Rabbit rabbit = new Rabbit(witnesses);
 
         Witness witness = king.requestToCall(rabbit);
