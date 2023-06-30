@@ -1,33 +1,30 @@
 package com.yohwan.study.objectbook.alice;
 
 public class Mushroom {
-    private int leftAmount;
-    private int rightAmount;
+    private int leftQuantity;
+    private int rightQuantity;
 
-    public Mushroom(int leftAmount, int rightAmount) {
-        this.leftAmount = leftAmount;
-        this.rightAmount = rightAmount;
+    public Mushroom(int leftQuantity, int rightAmount) {
+        this.leftQuantity = leftQuantity;
+        this.rightQuantity = rightAmount;
     }
 
-    public void decreaseLeft(Alice alice) {
-        if(leftAmount - 10 < 0) {
+    public void decreaseLeft(int eatenQuantity) {
+        if(leftQuantity - eatenQuantity < 0) {
             throw new IllegalStateException("양이 모자랍니다.");
         }
 
-        this.leftAmount -= 10;
-        System.out.println("버섯 왼쪽의 남은 양 : " + this.leftAmount);
-
-        alice.changeHeight(40);
+        this.leftQuantity -= eatenQuantity;
+        System.out.println("버섯 왼쪽의 남은 양 : " + this.leftQuantity);
     }
 
-    public void decreaseRight(Alice alice) {
-        if(rightAmount - 10 < 0) {
+    public void decreaseRight(int eatenQuantity) {
+        if(rightQuantity - eatenQuantity < 0) {
             throw new IllegalStateException("양이 모자랍니다.");
         }
 
-        this.rightAmount -= 10;
-        System.out.println("버섯 오른쪽의 남은 양 : " + this.rightAmount);
+        this.rightQuantity -= eatenQuantity;
+        System.out.println("버섯 오른쪽의 남은 양 : " + this.rightQuantity);
 
-        alice.changeHeight(130);
     }
 }

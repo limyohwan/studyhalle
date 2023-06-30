@@ -12,35 +12,51 @@ public class Alice {
 
     public void get(Key key) {
         if(this.key == null) {
-            this.key = key.get(this);
+            this.key = key.get(this.height);
         }
     }
 
     public void pass(Door door) {
-        door.pass(this);
+        if(this.getPlace() != Place.PASSAGE) {
+            throw new IllegalStateException("통로가 아닙니다.");
+        }
+
+        door.pass(this.key, this.height);
+
+        this.move(Place.BEAUTIFUL_GARDEN);
     }
 
     public void drink(Beverage beverage) {
-        beverage.decrease(this);
+        beverage.decrease(10);
+
+        this.changeHeight(24);
     }
 
     public void eat(Cake cake) {
-        cake.decrease(this);
+        cake.decrease(10);
+
+        this.changeHeight(this.height + 150);
     }
 
     public void shake(Fan fan) {
-        fan.shake(this);
+        fan.shake();
+        this.changeHeight(this.height - 20);
     }
 
     public void eatLeft(Mushroom mushroom) {
-        mushroom.decreaseLeft(this);
+        mushroom.decreaseLeft(10);
+
+        this.changeHeight(40);
     }
     public void eatRight(Mushroom mushroom) {
-        mushroom.decreaseRight(this);
+        mushroom.decreaseRight(10);
+
+        this.changeHeight(130);
     }
 
     public void changeHeight(int height) {
         if(height < 1) {
+            this.height = 1;
             throw new IllegalStateException("엘리스의 키를 더이상 줄일 수 없습니다.");
         }
         this.height = height;

@@ -7,8 +7,8 @@ public class Key {
         this.heightLimit = heightLimit;
     }
 
-    public Key get(Alice alice) {
-        if(alice.getHeight() <= heightLimit) {
+    public Key get(int height) {
+        if(height <= heightLimit) {
             throw new IllegalStateException("키가 30이하여서 열쇠를 얻을 수가 없습니다");
         }
 
