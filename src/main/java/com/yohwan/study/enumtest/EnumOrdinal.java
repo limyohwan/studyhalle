@@ -28,6 +28,6 @@ public class EnumOrdinal {
         }
         
         // ordinal()로 로직을 작성하는 것은 매우 위험함
-
+        // jpa entity 필드 값으로도 주의해서 사용해야함 @Enumerated(EnumType.STRING) = 사용권장,  @Enumerated(EnumType.ORDINAL) = 사용금지
     }
 }
