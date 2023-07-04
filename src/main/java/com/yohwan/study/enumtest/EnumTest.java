@@ -1,7 +1,7 @@
 package com.yohwan.study.enumtest;
 
 public class EnumTest {
-    private enum MyEnum {
+    enum MyEnum {
         YOHWAN("yohwan"), LIM("LIM");
         private String text;
 
