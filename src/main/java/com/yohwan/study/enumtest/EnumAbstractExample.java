@@ -1,12 +1,7 @@
 package com.yohwan.study.enumtest;
 
-public class EnumInterfaceExample {
-    interface Animal {
-        void sound();
-        void run();
-    }
-
-    enum AnimalType implements Animal {
+public class EnumAbstractExample {
+    enum AnimalType {
         DOG {
             @Override
             public void sound() {
@@ -50,11 +45,14 @@ public class EnumInterfaceExample {
             public void run() {
                 System.out.println("따닥따닥");
             }
-        }
+        };
+
+        abstract void sound();
+        abstract void run();
     }
 
     public static void main(String[] args) {
-        for (AnimalType type : AnimalType.values()) {
+        for (EnumInterfaceExample.AnimalType type : EnumInterfaceExample.AnimalType.values()) {
             type.sound();
             type.run();
         }
