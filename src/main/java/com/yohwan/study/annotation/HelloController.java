@@ -13,7 +13,7 @@ public class HelloController {
     private String privateName;
     public String publicName;
     
-    @GetMapping(STATIC_FINAL_HELLO)
+//    @GetMapping(STATIC_FINAL_HELLO)
     public String hello() {
         return "hello";
     }
