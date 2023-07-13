@@ -1,13 +1,9 @@
 package com.yohwan.study.objectbook.alice;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AliceTest {
 
@@ -76,4 +72,35 @@ class AliceTest {
         assertThat(passage).isNotEqualTo(Place.BEAUTIFUL_GARDEN);
     }
 
+    @Test
+    void isNull() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        assertThat(alice.getKey()).isNull();
+    }
+
+    @Test
+    void isNotNull() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+        alice.get(new Key(30));
+
+        assertThat(alice.getKey()).isNotNull();
+    }
+
+    @Test
+    void isSameAs() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+        Alice alice2 = alice;
+        Alice clone = new Alice(height, passage);
+
+        assertThat(alice2).isSameAs(alice);
+        assertThat(alice).isNotSameAs(clone);
+        //Verifies that the actual value is the same as the given one, ie using == comparison.
+    }
 }
