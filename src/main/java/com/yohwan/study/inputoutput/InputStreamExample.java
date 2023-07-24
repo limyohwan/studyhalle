@@ -1,13 +1,12 @@
-package com.yohwan.study.streamtest;
+package com.yohwan.study.inputoutput;
 
-import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
-public class BufferedInputStreamExample {
+public class InputStreamExample {
     public static void main(String[] args) {
-        //BufferedInputStream의 기본 버퍼 사이즈 = 8192
-        try (BufferedInputStream stream = new BufferedInputStream(new FileInputStream("hello.txt"))) {
+        try (InputStream stream = new FileInputStream("hello.txt")) {
             int data;
             while ((data = stream.read()) != -1) {
                 System.out.print((char) data);
