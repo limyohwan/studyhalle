@@ -1,4 +1,4 @@
-package com.yohwan.study.generictest;
+package com.yohwan.study.generictest.game;
 
 public class SuperPlay<T> {
     public static void main(String[] args) {

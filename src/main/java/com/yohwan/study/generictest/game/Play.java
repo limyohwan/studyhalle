@@ -1,4 +1,4 @@
-package com.yohwan.study.generictest;
+package com.yohwan.study.generictest.game;
 
 public class Play<T extends RankGame> { // extends지만 interface도 똑같이 동작함
 
