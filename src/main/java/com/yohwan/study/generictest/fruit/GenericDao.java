@@ -16,7 +16,7 @@ public class GenericDao<E extends Entity2<K>, K> {
 
 
     public GenericDao() {
-        this.entityClass = (Class<E>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        this.entityClass = (Class<E>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0]; // 수퍼타입토큰에대해 생각해보자
     }
 
     public Class<E> getEntityClass() {
