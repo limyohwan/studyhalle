@@ -97,10 +97,58 @@ class AliceTest {
         Place passage = Place.PASSAGE;
         Alice alice = new Alice(height, passage);
         Alice alice2 = alice;
+
+        //Verifies that the actual value is the same as the given one, ie using == comparison.
+        assertThat(alice).isSameAs(alice2);
+    }
+
+    @Test
+    void isNotSameAs() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
         Alice clone = new Alice(height, passage);
 
-        assertThat(alice2).isSameAs(alice);
         assertThat(alice).isNotSameAs(clone);
-        //Verifies that the actual value is the same as the given one, ie using == comparison.
     }
+
+    @Test
+    void isInstanceOf() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        assertThat(alice).isInstanceOf(Alice.class);
+    }
+
+    @Test
+    void hasFieldOrProperty() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        assertThat(alice).hasFieldOrProperty("height");
+        assertThat(alice).hasFieldOrProperty("place");
+    }
+
+    @Test
+    void hasFieldOrPropertyWithValue() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        assertThat(alice).hasFieldOrPropertyWithValue("height", height);
+        assertThat(alice).hasFieldOrPropertyWithValue("place", passage);
+    }
+
+    @Test
+    void extracting() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        assertThat(alice).extracting("height", "place")
+                .containsExactly(height, passage);
+    }
+
 }
