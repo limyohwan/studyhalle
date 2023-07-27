@@ -29,21 +29,4 @@ public class King extends TrumpPerson implements Judge {
         System.out.println("증언해라");
         witness.testify();
     }
-
-    public static void main(String[] args) {
-        King king = new King(TrumpKind.KING, TrumpShape.HEART);
-
-        LinkedList<Witness> witnesses = new LinkedList<>();
-        Hatter hatter = new Hatter();
-        witnesses.offer(hatter);
-
-        Rabbit rabbit = new Rabbit(witnesses);
-
-        Witness witness = king.requestToCall(rabbit);
-        king.requestToTestify(witness);
-
-        Witness witness2 = king.requestToCall(rabbit, hatter);
-        king.requestToTestify(witness2);
-
-    }
 }
