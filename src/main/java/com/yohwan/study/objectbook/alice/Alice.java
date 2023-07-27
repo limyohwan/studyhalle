@@ -103,9 +103,6 @@ public class Alice {
         alice.get(key);
         alice.pass(door);
 
-        new Door(40).pass(new Alice(100, Place.PASSAGE));
-        new Alice(100, Place.PASSAGE).pass(new Door(40));
-
         System.out.println("엘리스의 현재 위치 : " + alice.getPlace());
     }
 }
