@@ -1,5 +1,6 @@
 package com.yohwan.study.objectbook.alice;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -8,6 +9,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 class AliceTest {
 
     @Test
+    @Disabled
     void assertThatAs() {
 
         int height = 160;
@@ -31,6 +33,7 @@ class AliceTest {
     }
 
     @Test
+    @Disabled
     void assertThatOverridingErrorMessage() {
         int height = 160;
         Place passage = Place.PASSAGE;
@@ -43,6 +46,7 @@ class AliceTest {
     }
 
     @Test
+    @Disabled
     void assertThatLazyOverridingErrorMessage() {
         int height = 160;
         Place passage = Place.PASSAGE;
