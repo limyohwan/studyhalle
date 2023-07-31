@@ -15,4 +15,4 @@
 12. 12주차 정리 https://limyohwan.tistory.com/47
 13. 13주차 정리 https://limyohwan.tistory.com/48
 14. 14주차 정리 https://limyohwan.tistory.com/51
-15. 15주차 정리
+15. 15주차 정리 https://limyohwan.tistory.com/52
