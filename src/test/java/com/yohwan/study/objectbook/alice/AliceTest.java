@@ -1,9 +1,14 @@
 package com.yohwan.study.objectbook.alice;
 
+import com.yohwan.study.objectbook.trump.TrumpShape;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.BDDAssertions.then;
 
 class AliceTest {
@@ -181,5 +186,67 @@ class AliceTest {
         String name = "Alice";
 
         assertThat(name).matches(".....");
+    }
+
+    @Test
+    void collectionContains() {
+        TrumpShape[] shapes = TrumpShape.values();
+        List<TrumpShape> shapeList = Arrays.stream(shapes).collect(Collectors.toList());
+
+        assertThat(shapes).contains(TrumpShape.CLOVER);
+        assertThat(shapeList).contains(TrumpShape.CLOVER);
+    }
+
+    @Test
+    void containsExactly() {
+        TrumpShape[] shapes = TrumpShape.values();
+        List<TrumpShape> shapeList = Arrays.stream(shapes).collect(Collectors.toList());
+
+        assertThat(shapes).containsExactly(TrumpShape.SPADE, TrumpShape.HEART, TrumpShape.DIAMOND, TrumpShape.CLOVER);
+        assertThat(shapeList).elements(0,1,2,3).contains(TrumpShape.SPADE, TrumpShape.HEART, TrumpShape.DIAMOND, TrumpShape.CLOVER);
+    }
+
+    @Test
+    void hasSize() {
+        TrumpShape[] shapes = TrumpShape.values();
+        List<TrumpShape> shapeList = Arrays.stream(shapes).collect(Collectors.toList());
+
+        assertThat(shapes).hasSize(shapes.length);
+        assertThat(shapeList).hasSize(shapeList.size());
+    }
+
+    @Test
+    void isEmpty() {
+        List<Object> emptyList = List.of();
+        TrumpShape[] shapes = TrumpShape.values();
+        List<TrumpShape> shapeList = Arrays.stream(shapes).collect(Collectors.toList());
+
+        assertThat(emptyList).isEmpty();
+        assertThat(shapes).isNotEmpty();
+        assertThat(shapeList).isNotEmpty();
+    }
+
+    @Test
+    void exceptionIsInstanceOf() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        Throwable thrown = catchThrowable(() -> alice.pass(new Door(120)));
+        assertThat(thrown).isInstanceOf(IllegalStateException.class);
+
+        assertThatExceptionOfType(IllegalStateException.class)
+                .isThrownBy(() -> alice.pass(new Door(120)))
+                .isInstanceOf(IllegalStateException.class);
+    }
+
+    @Test
+    void hasMessage() {
+        int height = 160;
+        Place passage = Place.PASSAGE;
+        Alice alice = new Alice(height, passage);
+
+        Throwable thrown = catchThrowable(() -> alice.pass(new Door(120)));
+        assertThat(thrown).hasMessage("키가 40보다 작아야합니다.");
     }
 }
