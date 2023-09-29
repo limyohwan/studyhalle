@@ -155,4 +155,31 @@ class AliceTest {
                 .containsExactly(height, passage);
     }
 
+    @Test
+    void startsWith() {
+        String name = "Alice";
+
+        assertThat(name).startsWith("Ali");
+    }
+
+    @Test
+    void endsWith() {
+        String name = "Alice";
+
+        assertThat(name).endsWith("ce");
+    }
+
+    @Test
+    void contains() {
+        String name = "Alice";
+
+        assertThat(name).contains("ic");
+    }
+
+    @Test
+    void matches() {
+        String name = "Alice";
+
+        assertThat(name).matches(".....");
+    }
 }
